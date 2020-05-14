@@ -1,0 +1,5 @@
+if(EXISTS "/home/jonatan/Documents/Dev/foo-bar-fighters/test/tests_tests-4c0d252.cmake")
+  include("/home/jonatan/Documents/Dev/foo-bar-fighters/test/tests_tests-4c0d252.cmake")
+else()
+  add_test(tests_NOT_BUILT-4c0d252 tests_NOT_BUILT-4c0d252)
+endif()

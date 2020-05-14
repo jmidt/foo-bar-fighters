@@ -1,0 +1,130 @@
+[settings]
+    arch=x86_64
+    build_type=RelWithDebInfo
+    compiler=gcc
+    compiler.libcxx=libstdc++11
+    compiler.version=9
+    os=Linux
+
+[requires]
+    catch2/2.Y.Z
+    docopt.cpp/0.6.2
+    fmt/6.Y.Z
+    imgui-sfml/2.Y.Z
+    spdlog/1.Y.Z
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    arch_build=x86_64
+    build_type=RelWithDebInfo
+    compiler=gcc
+    compiler.libcxx=libstdc++11
+    compiler.version=9
+    os=Linux
+    os_build=Linux
+
+[full_requires]
+    bzip2/1.0.8:ff2ff6bb41ed84283a6634bada252c37f13eb93c
+    catch2/2.11.0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    docopt.cpp/0.6.2:f54287fc3dbd09590f968b580bebb565ea4a4b17
+    flac/1.3.3:18e127a3cdb0f6639b6def6067ba912bdf1053a3
+    fmt/6.1.2:f54287fc3dbd09590f968b580bebb565ea4a4b17
+    freetype/2.10.1:1381eb533150a52ee50820711faa223d436deba1
+    imgui-sfml/2.1@bincrafters/stable:7fd3adbcbb7471c6b91f20ec21c9b48477ff3602
+    libalsa/1.1.9:847849d4cc4b6352c8023780ae6930933f613ad9
+    libpng/1.6.37:1e8b7ff23bd5e7932ba7e8874349125fdf8e91ec
+    libpthread-stubs/0.1@bincrafters/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    libx11/1.6.8@bincrafters/stable:587c1d41d5d88ab2c9ebc4eed1d7c8b2a8a7a729
+    libxau/1.0.9@bincrafters/stable:66569c24bff45967c140569243d8d0a8c26af0d3
+    libxcb/1.13.1@bincrafters/stable:7a32b6490ac48002ec573506c28a6a66eb726071
+    libxdmcp/1.1.3@bincrafters/stable:ea716f259c8540af0a8bdd17e8db847fb4c840ae
+    libxext/1.3.4@bincrafters/stable:a62e2ad273733e6673c499a383b299c889af0084
+    libxrandr/1.5.2@bincrafters/stable:81db5fd49c95d4e1e207f036d33ce474975f5999
+    libxrender/0.9.10@bincrafters/stable:a62e2ad273733e6673c499a383b299c889af0084
+    ogg/1.3.4:6b7ff26bfd4c2cf2ccba522bfba2d2e7820e40da
+    openal/1.19.1:395a697543c6d91c9cea7263a9a7a1fd3e6ce3fd
+    opengl/virtual@bincrafters/stable:25315d66e1f567146d60eadc7d8fc22e5398fdaf
+    sfml/2.5.1@bincrafters/stable:8e866ac6351a8b54c67121efe7a1e28e6797cec3
+    spdlog/1.5.0:12c8590eca64ca13d7eac957bde897f3a31c0f6e
+    stb/20200203:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    util-macros/1.19.2@bincrafters/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    vorbis/1.3.6:b64f670df847327ead52ac5bfa3722faedc2edc3
+    xcb-proto/1.13@bincrafters/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    xorgproto/2019.1@bincrafters/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    xproto/7.0.31@bincrafters/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    xtrans/1.4.0@bincrafters/stable:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+    zlib/1.2.11:6b7ff26bfd4c2cf2ccba522bfba2d2e7820e40da
+
+[full_options]
+    bzip2:build_executable=True
+    bzip2:fPIC=True
+    bzip2:shared=False
+    docopt.cpp:boost_regex=False
+    docopt.cpp:fPIC=True
+    docopt.cpp:shared=False
+    flac:fPIC=True
+    flac:shared=False
+    fmt:fPIC=True
+    fmt:header_only=False
+    fmt:shared=False
+    fmt:with_fmt_alias=False
+    freetype:fPIC=True
+    freetype:shared=False
+    freetype:with_bzip2=True
+    freetype:with_png=True
+    freetype:with_zlib=True
+    imgui-sfml:fPIC=True
+    imgui-sfml:imconfig=None
+    imgui-sfml:imconfig_install_folder=None
+    imgui-sfml:shared=False
+    libalsa:disable_python=True
+    libalsa:fPIC=True
+    libalsa:shared=False
+    libpng:api_prefix=None
+    libpng:fPIC=True
+    libpng:shared=False
+    libx11:fPIC=True
+    libx11:shared=False
+    libxau:fPIC=True
+    libxau:shared=False
+    libxcb:fPIC=True
+    libxcb:shared=False
+    libxdmcp:fPIC=True
+    libxdmcp:shared=False
+    libxext:fPIC=True
+    libxext:shared=False
+    libxrandr:fPIC=True
+    libxrandr:shared=False
+    libxrender:fPIC=True
+    libxrender:shared=False
+    ogg:fPIC=True
+    ogg:shared=False
+    openal:fPIC=True
+    openal:shared=False
+    opengl:provider=system
+    sfml:audio=True
+    sfml:fPIC=True
+    sfml:graphics=True
+    sfml:network=True
+    sfml:shared=False
+    sfml:window=True
+    spdlog:fPIC=True
+    spdlog:header_only=False
+    spdlog:no_exceptions=False
+    spdlog:shared=False
+    spdlog:wchar_filenames=False
+    spdlog:wchar_support=False
+    vorbis:fPIC=True
+    vorbis:shared=False
+    zlib:fPIC=True
+    zlib:minizip=False
+    zlib:shared=False
+
+[recipe_hash]
+
+
+[env]
+
