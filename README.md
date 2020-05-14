@@ -1,7 +1,4 @@
-# cpp_starter_project
+# FooBar Fighters
 
-[![codecov](https://codecov.io/gh/lefticus/cpp_starter_project/branch/master/graph/badge.svg)](https://codecov.io/gh/lefticus/cpp_starter_project)
+A rudimentary game engine following Jason Turner's "An RPG in C++20" video series. The basic CMake setup is based on Jason's C++/Cmake "starter project". 
 
-[![Build Status](https://travis-ci.org/lefticus/cpp_starter_project.svg?branch=master)](https://travis-ci.org/lefticus/cpp_starter_project)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/ro4lbfoa7n0sy74c/branch/master?svg=true)](https://ci.appveyor.com/project/lefticus/cpp-starter-project/branch/master)
