@@ -15,52 +15,72 @@
 
 #include <iostream>
 
-// static constexpr auto USAGE =
-//   R"(Naval Fate.
+static constexpr auto USAGE =
+  R"(FooBar Fighters.
+    Usage:
+          FooBarFighters [options]
 
-//     Usage:
-//           naval_fate ship new <name>...
-//           naval_fate ship <name> move <x> <y> [--speed=<kn>]
-//           naval_fate ship shoot <x> <y>
-//           naval_fate mine (set|remove) <x> <y> [--moored | --drifting]
-//           naval_fate (-h | --help)
-//           naval_fate --version
-//  Options:
-//           -h --help     Show this screen.
-//           --version     Show version.
-//           --speed=<kn>  Speed in knots [default: 10].
-//           --moored      Moored (anchored) mine.
-//           --drifting    Drifting mine.
-// )";
+  Options:
+          -h --help     Show this screen.
+          --version     Show version.
+          --width=<w>       Window width [default: 1800].
+          --height=<h>      Window height [default: 1400].
+          --scale=<s>       Scale factor for graphics [default: 4].
+          --framerate=<fr>   Max Framerate [default: 60].
+)";
 
-int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
+int main(int argc, const char **argv)
 {
-  // std::map<std::string, docopt::value> args = docopt::docopt(USAGE,
-  //   { std::next(argv), std::next(argv, argc) },
-  //   true,// show help if requested
-  //   "Naval Fate 2.0");// version string
+  std::map<std::string, docopt::value> args = docopt::docopt(USAGE,
+    { std::next(argv), std::next(argv, argc) },
+    true,// show help if requested
+    "FooBar Fighters v0.1");// version string
 
-  // for (auto const &arg : args) {
-  //   std::cout << arg.first << arg.second << std::endl;
-  // }
+  for (auto const &arg : args) {
+    if (arg.second.isString()) { spdlog::info("Parameter: {} = {}", arg.first, arg.second.asString()); }
+  }
 
-  constexpr int window_width = 1640;
-  constexpr int window_height = 1280;
-  constexpr int frame_rate = 60;
+  const auto window_width = args["--width"].asLong();
+  const auto window_height = args["--height"].asLong();
+  const auto frame_rate = args["--framerate"].asLong();
+  const auto scale = args["--scale"].asLong();
+
+  if (window_width <= 0 || window_height <= 0 || frame_rate <= 0 || scale < 0) {
+    spdlog::error("Command line parameters out of pounds.");
+    for (auto const &arg : args) {
+      if (arg.second.isString()) { spdlog::info("Parameter: {} = {}", arg.first, arg.second.asString()); }
+    }
+    abort();
+  }
 
   //Use the default logger (stdout, multi-threaded, colored)
   spdlog::info("Starting ImGUI + SFML");
 
 
-  sf::RenderWindow window(sf::VideoMode(window_width, window_height), "ImGui + SFML = <3");
-  window.setFramerateLimit(frame_rate);
+  sf::RenderWindow window(sf::VideoMode(static_cast<unsigned>(window_width), static_cast<unsigned>(window_height)), "ImGui + SFML = <3");
+  window.setFramerateLimit(static_cast<unsigned>(frame_rate));
   ImGui::SFML::Init(window);
 
-  constexpr auto scale_factor = 4.0;
+  const auto scale_factor = static_cast<float>(scale);
   ImGui::GetStyle().ScaleAllSizes(scale_factor);
   ImGui::GetIO().FontGlobalScale = scale_factor;
 
-  std::array<bool, 13> state = {false};
+  constexpr std::array steps = { "The Plan",
+    "Getting Started",
+    "Finding Errors as soon as possible",
+    "Handling Command Line Parameters",
+    "C++20 So Far",
+    "Reading SFML input States",
+    "Managing Game state",
+    "Making Our Game Testable",
+    "Making Game State Allocator Aware",
+    "Add Logging to Game Engine",
+    "Draw A Game Map",
+    "Dialog Trees",
+    "Porting SFML to SDL" };
+
+  std::array<bool, steps.size()> state = { false };
+
 
   sf::Clock deltaClock;
   while (window.isOpen()) {
@@ -77,9 +97,9 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
 
 
     ImGui::Begin("The Plan");
-    size_t i = 0;
-    for (const auto& step : { "0 : The Plan", "1 : Getting Started", "2 : Finding Errors as soon as possible", "3 : Stuff?", "4 : C++20 So Far", "5 : Reading SFML input States", "6 : Managing Game state", "7 : Making Our Game Testable", "8 : Making Game State Allocator Aware", "9 : Add Logging to Game Engine", "10 : Draw A Game Map", "11 : Dialog Trees", "12: Porting SFML to SDL" }) {
-      ImGui::Checkbox(step, &state.at(i));
+
+    for (size_t i = 0; const auto &step : steps) {
+      ImGui::Checkbox(fmt::format("{} : {}", i, step).c_str(), &state.at(i));
       i++;
     }
     ImGui::End();
